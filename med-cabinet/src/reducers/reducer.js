@@ -30,7 +30,7 @@ export const reducer = (state = initialState, action) => {
         case USER_CREATE_ERROR :
             return {
                 ...state,
-                // isPosting: true,
+                isPosting: false,
                 error: action.payload
             }
         default :
