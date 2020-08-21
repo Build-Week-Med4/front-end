@@ -21,8 +21,8 @@ export const reducer = (state = initialState, action) => {
             return {
                     ...state,
                     credentials: {
-                        username: 'user1',
-                        password: 'Abc123!'
+                        username: action.payload.username,
+                        password: action.payload.password
                     },
                     error: '',
                     isPosting: false

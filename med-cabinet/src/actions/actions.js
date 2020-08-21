@@ -8,13 +8,13 @@ export const makeUser = (creds) => dispatch => {
     console.log('in the makeUser function')
     dispatch({ type: POSTING_USER_CREDS });
 
-    axios.post('exampleApi/users', creds)
+    axios.post('https://reqres.in/api/users', creds)
     .then(res => {
         console.log(res.data)
-        dispatch({ type: USER_CREATE_SUCCESS, payload: 'hey there' })
+        dispatch({ type: USER_CREATE_SUCCESS, payload: res.data })
     })
     .catch(err => {
-        console.log(err.response)
-        dispatch({ type: USER_CREATE_ERROR, payload: 'whoops' })
+        console.log(err.message)
+        dispatch({ type: USER_CREATE_ERROR, payload: err.message })
     })
 }
