@@ -28,8 +28,8 @@ export const logIn = (creds) => dispatch => {
 
     axios.post('https://reqres.in/api/login', creds)
     .then(res => {
-        console.log(res.data)
-        dispatch({ type: LOGIN_SUCCESS, payload: 'successful login' })
+        window.localStorage.setItem('token', res.data.token)
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data })
     })
     .catch(err => {
         console.log(err.message)
