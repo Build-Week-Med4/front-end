@@ -1,9 +1,13 @@
 import React, {useState,useEffect} from "react";
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from "yup";
 
 //Form Function
 const Form = () => {
+
+//setting a push method from the useHistory hook in order to return application to the main login (home) component
+const { push } = useHistory()
 
 //setting Data for object to backend 
 const [data,setData] = useState({});
@@ -72,6 +76,7 @@ const formSubmit = e => {
             setForm(blankValue);
             //console logging the example data api
             console.log(data);
+            push('/')
         })
         .catch(err => {
             console.log(err);
