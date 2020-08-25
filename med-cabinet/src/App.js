@@ -10,7 +10,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="chilled">
         <p>App Initialized</p>
         <Link to='/user-form'><button>Form test</button></Link>
         <Switch>
