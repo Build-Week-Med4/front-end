@@ -19,14 +19,17 @@ const Login = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.logIn(formState)
+        props.logIn({
+            email: 'eve.holt@reqres.in',
+            password: 'pistol'
+        })
         setFormState(initialValue)
     }
     
     return(
         <>
             <form onSubmit={handleSubmit} >
-                <legend>Enter Username and Password</legend>
+                <legend>Enter Username (email) and Password</legend>
                 <label htmlFor='email' />email :
                     <input 
                         type='text'
@@ -45,6 +48,7 @@ const Login = (props) => {
                     />
                 <button type='submit'>Log In</button>
                 {props.isLoggingIn ? <p style={{color: 'red'}}>Signing In...</p> : null}
+                {props.loggingError ? <p style={{color: 'red'}}>There was an error...{props.loggingError}</p> : null}
             </form>
         </>
     )

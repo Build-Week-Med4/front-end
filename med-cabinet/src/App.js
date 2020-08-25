@@ -6,6 +6,7 @@ import SignUp from './components/SignUp'
 import Form from './components/Form'
 import PrivateRoute from './utils/PrivateRoute'
 import './App.css';
+import APITest from './components/APITest';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <PrivateRoute exact path='/user-form' component={Form} />
           <Route path='/sign-up' component={SignUp} />
+          <Route path='/api-test' component={APITest} />
           <Route exact path='/' component={LogInPage} />
         </Switch>
       </div>

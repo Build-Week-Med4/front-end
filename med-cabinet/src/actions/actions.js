@@ -33,6 +33,6 @@ export const logIn = (creds) => dispatch => {
     })
     .catch(err => {
         console.log(err.message)
-        dispatch({ type: LOGIN_ERROR, payload: 'there was an error' })
+        dispatch({ type: LOGIN_ERROR, payload: err.message })
     })
 }
