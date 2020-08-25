@@ -79,7 +79,6 @@ const formSubmit = e => {
                 return bud.effect === formState.effect
               })
               )
-            setData(newData);
             setForm(blankValue);
             //console logging the example data api
             console.log(response)
