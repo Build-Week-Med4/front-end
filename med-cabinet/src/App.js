@@ -14,8 +14,6 @@ function App() {
     <Router>
       <NavHeader />
       <div className="chilled">
-        <p>App Initialized</p>
-        <Link to='/user-form'><button>Form test</button></Link>
         <Switch>
           <PrivateRoute exact path='/user-form' component={Form} />
           <Route path='/sign-up' component={SignUp} />
