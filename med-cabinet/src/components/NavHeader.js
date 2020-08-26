@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 
 const Header = styled.div`
@@ -31,7 +32,14 @@ const Header = styled.div`
     }
 `;
 
-const NavHeader = () => {
+const NavHeader = (props) => {
+    const [linkText, setLinkText] = useState('')
+
+    useEffect(() => {
+        if(props.token){
+            setLinkText("Find Recommendations")
+        }
+    }, [props.token])
 
     return (
         <Header>
@@ -39,10 +47,17 @@ const NavHeader = () => {
             <div>
                 <a href='https://medcabinet4.netlify.app/'>Marketing Page</a>
                 <NavLink to='/'>Login / SignUp</NavLink>
-                {window.localStorage.getItem('token') ? <NavLink to='/user-form'>Find Recommendations</NavLink> : null}
+                <NavLink to='/user-form'>{linkText}</NavLink>
             </div>
         </Header>
     )
 }
 
-export default NavHeader
+const mapStateToProps = state => {
+    return {
+        ...state,
+        token: state.token
+    }
+}
+
+export default connect(mapStateToProps, null)(NavHeader)
