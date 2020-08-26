@@ -26,6 +26,7 @@ background-size: cover;
 .chilled{
   background-color:darkgreen;
   padding-top: 40px;
+  padding-bottom: 40px;
   text-align:center;
 }
 .Danger{
