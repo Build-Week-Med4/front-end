@@ -34,7 +34,7 @@ const SignUp = (props) => {
     
     return(
         <form onSubmit={handleSubmit} >
-            <legend>Input New Username and Password</legend>
+            <legend>Input New Username and Create a Password</legend>
             <label htmlFor='username' />Enter Username: 
             <input
                 type='text'
