@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/front-end/static/css/main.d88e4d5e.chunk.css",
-    "main.js": "/front-end/static/js/main.d29f2781.chunk.js",
-    "main.js.map": "/front-end/static/js/main.d29f2781.chunk.js.map",
-    "runtime-main.js": "/front-end/static/js/runtime-main.445e8f9c.js",
-    "runtime-main.js.map": "/front-end/static/js/runtime-main.445e8f9c.js.map",
-    "static/css/2.11829350.chunk.css": "/front-end/static/css/2.11829350.chunk.css",
-    "static/js/2.c34a9c17.chunk.js": "/front-end/static/js/2.c34a9c17.chunk.js",
-    "static/js/2.c34a9c17.chunk.js.map": "/front-end/static/js/2.c34a9c17.chunk.js.map",
-    "index.html": "/front-end/index.html",
-    "precache-manifest.77e7c106fed27a08852eee773aa52b61.js": "/front-end/precache-manifest.77e7c106fed27a08852eee773aa52b61.js",
-    "service-worker.js": "/front-end/service-worker.js",
-    "static/css/2.11829350.chunk.css.map": "/front-end/static/css/2.11829350.chunk.css.map",
-    "static/css/main.d88e4d5e.chunk.css.map": "/front-end/static/css/main.d88e4d5e.chunk.css.map",
-    "static/js/2.c34a9c17.chunk.js.LICENSE.txt": "/front-end/static/js/2.c34a9c17.chunk.js.LICENSE.txt"
+    "main.css": "/front-end/med-cabinet/static/css/main.d88e4d5e.chunk.css",
+    "main.js": "/front-end/med-cabinet/static/js/main.501fa92a.chunk.js",
+    "main.js.map": "/front-end/med-cabinet/static/js/main.501fa92a.chunk.js.map",
+    "runtime-main.js": "/front-end/med-cabinet/static/js/runtime-main.8fc7fa11.js",
+    "runtime-main.js.map": "/front-end/med-cabinet/static/js/runtime-main.8fc7fa11.js.map",
+    "static/css/2.11829350.chunk.css": "/front-end/med-cabinet/static/css/2.11829350.chunk.css",
+    "static/js/2.16f55f5c.chunk.js": "/front-end/med-cabinet/static/js/2.16f55f5c.chunk.js",
+    "static/js/2.16f55f5c.chunk.js.map": "/front-end/med-cabinet/static/js/2.16f55f5c.chunk.js.map",
+    "index.html": "/front-end/med-cabinet/index.html",
+    "precache-manifest.25635c67261460ebaebb3d0d38db7e79.js": "/front-end/med-cabinet/precache-manifest.25635c67261460ebaebb3d0d38db7e79.js",
+    "service-worker.js": "/front-end/med-cabinet/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/front-end/med-cabinet/static/css/2.11829350.chunk.css.map",
+    "static/css/main.d88e4d5e.chunk.css.map": "/front-end/med-cabinet/static/css/main.d88e4d5e.chunk.css.map",
+    "static/js/2.16f55f5c.chunk.js.LICENSE.txt": "/front-end/med-cabinet/static/js/2.16f55f5c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.445e8f9c.js",
+    "static/js/runtime-main.8fc7fa11.js",
     "static/css/2.11829350.chunk.css",
-    "static/js/2.c34a9c17.chunk.js",
+    "static/js/2.16f55f5c.chunk.js",
     "static/css/main.d88e4d5e.chunk.css",
-    "static/js/main.d29f2781.chunk.js"
+    "static/js/main.501fa92a.chunk.js"
   ]
 }
