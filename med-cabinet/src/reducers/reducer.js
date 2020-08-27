@@ -41,6 +41,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggingIn: true,
+                token: action.payload
             }
         case LOGIN_SUCCESS :
             return {

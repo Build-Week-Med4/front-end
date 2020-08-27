@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 export const POSTING_USER_CREDS = 'POSTING_USER_CREDS'
 export const USER_CREATE_SUCCESS = 'USER_CREATE_SUCCESS'
@@ -24,15 +25,17 @@ export const makeUser = (creds) => dispatch => {
 }
 
 export const logIn = (creds) => dispatch => {
+
     dispatch({ type: LOGGING_IN_STATUS })
 
     axios.post('https://reqres.in/api/login', creds)
     .then(res => {
-        console.log(res.data)
-        dispatch({ type: LOGIN_SUCCESS, payload: 'successful login' })
+        console.log('action.js: logIn: success: ', res.data.token)
+        window.localStorage.setItem('token', res.data.token)
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
     })
     .catch(err => {
         console.log(err.message)
-        dispatch({ type: LOGIN_ERROR, payload: 'there was an error' })
+        dispatch({ type: LOGIN_ERROR, payload: err.message })
     })
 }
