@@ -38,8 +38,9 @@ const NavHeader = (props) => {
 
     useEffect(() => {
         if(props.token){
-            setLinkText("Find Recommendations")
+            return setLinkText("Find Recommendations")
         }
+        return setLinkText('')
     }, [props.token])
 
     return (
