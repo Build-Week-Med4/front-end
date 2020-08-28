@@ -33,8 +33,8 @@ const SignUpForm = styled.div`
 const SignUp = (props) => {
     const { push } = useHistory()
     const [formData, setFormData] = useState({
-        username: '', 
-        password: ''
+        "username": "", 
+        "password": ""
     })
 
     const handleChange = e => {
@@ -54,8 +54,8 @@ const SignUp = (props) => {
         }
 
         return setFormData({
-            username: '',
-            password: ''
+            username: "",
+            password: ""
         })
     }
     
@@ -66,7 +66,7 @@ const SignUp = (props) => {
                 <label htmlFor='username' />Enter Username: 
                 <input
                     type='text'
-                    name='username'
+                    name="username"
                     id='username'
                     placeholder='Please Enter Your Email'
                     value={formData.username}
@@ -75,7 +75,7 @@ const SignUp = (props) => {
                 <label htmlFor='password' />Enter Password: 
                 <input
                     type='password'
-                    name='password'
+                    name="password"
                     id='password'
                     placeholder='Please Create a Password'
                     value={formData.password}

@@ -31,7 +31,7 @@ const LogInPage = styled.div`
 `;
 
 const initialValue = {
-    email: '',
+    username: '',
     password: ''
 }
 
@@ -47,10 +47,11 @@ const Login = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.logIn({
-            email: 'eve.holt@reqres.in',
-            password: 'pistol'
-        })
+        // props.logIn({
+        //     "username": "testuser01",
+        //     "password": "test0"
+        // })
+        props.logIn(formState)
         setFormState(initialValue)
     }
     
@@ -58,13 +59,13 @@ const Login = (props) => {
         <LogInPage>
             <form onSubmit={handleSubmit} >
                 <legend>Enter Username (email) and Password</legend>
-                <label htmlFor='email' />email :
+                <label htmlFor='username' />Username :
                     <input 
                         type='text'
-                        name='email'
-                        id='email'
+                        name='username'
+                        id='username'
                         placeholder='Enter Email(Username)'
-                        value={formState.email}
+                        value={formState.username}
                         onChange={handleChange}
                     />
                 <label htmlFor='password' />Password :
@@ -78,7 +79,10 @@ const Login = (props) => {
                     />
                 <button type='submit'>Log In</button>
                 <Link to='/sign-up'><button>sign up</button></Link>
+                {props.successMessage ? <p style={{color: 'darkgreen'}}>{props.successMessage}</p> : null}
+                {props.error ? <p style={{color: 'red'}}>{props.error}</p> : null}
                 {props.isLoggingIn ? <p style={{color: 'red'}}>Signing In...</p> : null}
+                {props.loggingSuccess ? <p style={{color: 'white', backgroundColor: 'darkgreen', padding: '0 10px'}}>{props.loggingSuccess}</p> : null}
                 {props.loggingError ? <p style={{color: 'red'}}>There was an error...{props.loggingError}</p> : null}
             </form>
         </LogInPage>
@@ -88,7 +92,10 @@ const Login = (props) => {
 const mapStateToProps = state => {
     return {
         ...state,
+        successMessage: state.successMessage,
+        error: state.error,
         isLoggingIn: state.isLoggingIn,
+        loggingSuccess: state.loggingSuccess,
         loggingError: state.loggingError
     }
 }

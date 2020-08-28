@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { logOut } from '../actions/actions'
 import styled from 'styled-components'
 
 const Header = styled.div`
@@ -37,8 +38,9 @@ const NavHeader = (props) => {
 
     useEffect(() => {
         if(props.token){
-            setLinkText("Find Recommendations")
+            return setLinkText("Find Recommendations")
         }
+        return setLinkText('')
     }, [props.token])
 
     return (
@@ -47,6 +49,7 @@ const NavHeader = (props) => {
             <div>
                 <a href='https://medcabinet4.netlify.app/'>Marketing Page</a>
                 <NavLink to='/'>Login / SignUp</NavLink>
+                <NavLink to='/logout'>Log Out</NavLink>
                 <NavLink to='/user-form'>{linkText}</NavLink>
             </div>
         </Header>
@@ -60,4 +63,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(NavHeader)
+export default connect(mapStateToProps, { logOut })(NavHeader)
