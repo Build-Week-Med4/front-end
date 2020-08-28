@@ -1,14 +1,12 @@
-import { POSTING_USER_CREDS, USER_CREATE_SUCCESS, USER_CREATE_ERROR, LOGGING_IN_STATUS, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/actions'
+import { POSTING_USER_CREDS, USER_CREATE_SUCCESS, USER_CREATE_ERROR, LOGGING_IN_STATUS, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_ACTION } from '../actions/actions'
 
 const initialState = {
     isPosting: false,
     isLoggingIn: false,
-    credentials: {
-        username: '',
-        password: ''
-    },
     token: '',
+    successMessage: '',
     error: '',
+    loggingSuccess: '',
     loggingError: ''
 }
 
@@ -24,16 +22,18 @@ export const reducer = (state = initialState, action) => {
             console.log(action.payload)
             return {
                     ...state,
-                    credentials: {
-                        username: action.payload.username,
-                        password: action.payload.password
-                    },
                     error: '',
+                    loggingSuccess: '',
+                    loggingError: '',
+                    successMessage: action.payload.message,
                     isPosting: false
                 }
         case USER_CREATE_ERROR :
             return {
                 ...state,
+                successMessage: '',
+                loggingSuccess: '',
+                loggingError: '',
                 isPosting: false,
                 error: action.payload
             }
@@ -47,14 +47,30 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggingIn: false,
-                token: action.payload,
+                successMessage: '',
+                error: '',
+                loggingSuccess: action.payload.message + ', Click Find Recommendations at the top of the page to Get Started !',
+                token: action.payload.token,
                 loggingError: ''
             }
         case LOGIN_ERROR :
             return {
                 ...state,
                 isLoggingIn: false,
+                successMessage: '',
+                error: '',
+                loggingSuccess: '',
                 loggingError: action.payload
+            }
+        case LOGOUT_ACTION :
+            return {
+                isPosting: false,
+                isLoggingIn: false,
+                token: '',
+                successMessage: '',
+                error: '',
+                loggingSuccess: '',
+                loggingError: ''
             }
         default :
             return state
