@@ -15,7 +15,6 @@ const Form = () => {
 //setting a push method from the useHistory hook in order to return application to the main login (home) component
 const { push } = useHistory()
 
-//setting Data for object to backend 
 const [data,setData] = useState([]);
 
 //blank state for the form data 
@@ -38,53 +37,50 @@ const [errors, setErrors] = useState({
 //setting up yup schema object 
 
 const dataSchema = yup.object().shape({
-    effects: yup.string().oneOf(["Creative","Focused"],"Please select a desired effect"),
-      flavors: yup.string().oneOf(["Earthy"],"Please select a desired Flavor")
+    effect: yup.string().oneOf(["Creative","Focused","Creative"],"Please select a desired effect"),
+      flavor: yup.string().oneOf(["Earthy","Apple"], "Please select a desired Flavor")
   });
 
 //onChange function to watch for changes in form values 
 const inputChange = e => {
     e.persist();
     const newFormData = {
-        ...formState, [e.target.name] : e.target.type === "checkbox" ? e.target.checked : e.target.value
+        ...formState, [e.target.name] :  e.target.value
     }
-    validateChange(e); 
     setForm(newFormData);
 }
 
 //validating that the form has inputs and setting errors with yup
-const validateChange = (e) => {
-    yup
-      .reach(dataSchema, e.target.name)
-      .validate(e.target.name === "terms" ? e.target.checked : e.target.value) 
-      .then((valid) => {
-        setErrors({
-          ...errors,
-          [e.target.name]: ""
-        });
-      })
-      .catch((err) => {
-        console.log(err);
+// const validateChange = (e) => {
+//     yup
+//       .reach(dataSchema, e.target.name)
+//       .validate(e.target.name === ? e.target.checked : e.target.value) 
+//       .then((valid) => {
+//         setErrors({
+//           ...errors,
+//           [e.target.name]: ""
+//         });
+//       })
+//       .catch((err) => {
+//         console.log(err);
 
-        // set error in state
-        setErrors({
-          ...errors,
-          [e.target.name]: err.errors[0]
-        });
-      });
-  };
+//         // set error in state
+//         setErrors({
+//           ...errors,
+//           [e.target.name]: err.errors[0]
+//         });
+//       });
+//   };
 //submit function to record the data in a json structure with an api HLKs5e3
 const formSubmit = e => {
     e.preventDefault();
+    console.log(formState);
     axios.post("https://med-cab4.herokuapp.com/predict",formState)
         .then(response => {
             console.log(response.data);
-            const newData = response.data.filter((bud => {
-                return bud.effect === formState.effect
-              })
-              )
+            setData(response.data);
+              
             setForm(blankValue);
-            //console logging the example data api
         })
         .catch(err => {
             console.log(err);
@@ -95,14 +91,12 @@ const formSubmit = e => {
 useEffect(() => {
     axios.post("https://med-cab4.herokuapp.com/predict")
     .then(res => {
-        console.log(res)
+        console.log(res.data)
     })
     .catch(err => {
         console.log(err)
     })
-    dataSchema.isValid(formState).then((isValid) => {
-        setButtonDisabled(!isValid)
-    });
+
 }, [formState]);
 
 return (
@@ -116,40 +110,29 @@ return (
          <form onSubmit = {formSubmit}>
          <Row>
              <Col>
-             <label htmlFor = "effects">
+             <label htmlFor = "effect">
                  Effect you're Looking for:
-                <select name ="effects" onChange = {inputChange} value= {formState.effects}>
+                <select name ="effect" onChange = {inputChange} value= {formState.effect}>
+                    <option value = {null}></option>
                     <option value = 'Energetic'>Energetic</option>
-                    <option value = 'Tingly'>Tingly</option>
-                    <option value = 'Euphoric'>Euphoric</option>
-                    <option value = 'Relaxed'>'Relaxed'</option>
-                    <option value = 'Aroused'>'Aroused'</option>
-                    <option value = 'Happy'>'Happy'</option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
-                    <option value = {null}></option>
                     <option value = "Creative">Creative</option>
                     <option value = "Focused">Focused</option>
                 </select>
              </label>
              </Col>
              <Col>
-             <label htmlFor = "flavors">
+             <label htmlFor = "flavor">
                  Flavor you're Looking for:
-                <select name ="flavors" onChange = {inputChange} value= {formState.flavors}>
+                <select name ="flavor" onChange = {inputChange} value= {formState.flavor}>
                     <option value = {null}></option>
+                    <option value = "Apple">Apple</option>
                     <option value = "Earthy">Earthy</option>
+                    <option value = "Blueberry">Blueberry</option>
                 </select>
              </label>
              </Col>
              </Row>
-             <button className = "Danger" disabled = {buttonDisabled} type = "submit">Submit</button>
+             <button className = "Danger"  type = "submit">Submit</button>
          </form>
          </Container>
          <Container>
