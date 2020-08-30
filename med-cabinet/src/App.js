@@ -9,6 +9,9 @@ import NavHeader from './components/NavHeader'
 import LogOut from './components/LogOut'
 import './App.css';
 import APITest from './components/APITest';
+import RecommendSave from './components/RecommendSave'
+import GetUserRecommends from './components/GetUserRecommends'
+import RecommendDisplay from './components/RecommendDisplay'
 
 function App() {
   return (
@@ -17,6 +20,10 @@ function App() {
       <div className="chilled">
         <Switch>
           <PrivateRoute exact path='/user-form' component={Form} />
+          <PrivateRoute exact path='/recommend-display' component={RecommendDisplay} />
+          <Route path='/save-recommend' component={RecommendSave} />
+          <Route path='/get-recommend' component={GetUserRecommends} />
+          {/* <Route path='/APITest'>APITest</Route> */}
           <Route path='/sign-up' component={SignUp} />
           <Route path='/logout' component={LogOut} />
           <Route path='/api-test' component={APITest} />
