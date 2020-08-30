@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logIn } from '../actions/actions'
 import styled from 'styled-components'
@@ -37,6 +37,7 @@ const initialValue = {
 
 const Login = (props) => {
     const [formState, setFormState] = useState(initialValue)
+    const { push } = useHistory()
 
     const handleChange = e => {
         setFormState({
@@ -51,6 +52,7 @@ const Login = (props) => {
         //     "username": "testuser01",
         //     "password": "test0"
         // })
+        push('/user-form')
         props.logIn(formState)
         setFormState(initialValue)
     }

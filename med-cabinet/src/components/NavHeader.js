@@ -48,6 +48,7 @@ const NavHeader = (props) => {
             <span><img src='https://smallimg.pngkey.com/png/small/60-600941_cannabis-registration-green-medical-cross-logo.png' alt='medicinal marijuana cross' /></span>
             <div>
                 <a href='https://medcabinet4.netlify.app/'>Marketing Page</a>
+                {/* <NavLink to='/API-test'>API Test</NavLink> */}
                 <NavLink to='/'>Login / SignUp</NavLink>
                 <NavLink to='/logout'>Log Out</NavLink>
                 <NavLink to='/user-form'>{linkText}</NavLink>

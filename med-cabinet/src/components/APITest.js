@@ -10,7 +10,7 @@ const APITest = () => {
     const [data, setData] = useState({})
 
     useEffect(() => {
-        axios.get('https://med-cab4.herokuapp.com/predict', testData)
+        axios.post('https://med-cab4.herokuapp.com/predict', testData)
         .then(res => {
             console.log(res.data)
         })

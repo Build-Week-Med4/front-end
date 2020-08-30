@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from "yup";
 import Weed from './Weed.js';
@@ -88,16 +88,16 @@ const formSubmit = e => {
 }
 
 //use effect to make sure person provides an effect 
-useEffect(() => {
-    axios.post("https://med-cab4.herokuapp.com/predict")
-    .then(res => {
-        console.log(res.data)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+// useEffect(() => {
+//     axios.post("https://med-cab4.herokuapp.com/predict")
+//     .then(res => {
+//         console.log(res.data)
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
 
-}, [formState]);
+// }, [formState]);
 
 return (
     <div>
@@ -137,6 +137,8 @@ return (
          </Container>
          <Container>
          <Weed weed = {data} />
+         <Link to='/save-recommend'><button>Save Recommendation ?</button></Link>
+         <Link to='/get-recommend'><button>Get Recommendation(s) ?</button></Link>
          </Container>
     </div>
 )
