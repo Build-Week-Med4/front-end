@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "63d7cfdbead819d33766bcd78bce9a11",
+    "revision": "dd6e23971004054648dc8fb294d5ffca",
     "url": "/front-end/med-cabinet/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/front-end/med-cabinet/static/css/2.11829350.chunk.css"
   },
   {
-    "revision": "9c4693bee4c454e8a554",
-    "url": "/front-end/med-cabinet/static/css/main.d88e4d5e.chunk.css"
+    "revision": "aeee9c2fd65938a64874",
+    "url": "/front-end/med-cabinet/static/css/main.d800be47.chunk.css"
   },
   {
     "revision": "bd37489bb97bccf91c3a",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/front-end/med-cabinet/static/js/2.700b912c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9c4693bee4c454e8a554",
+    "revision": "aeee9c2fd65938a64874",
     "url": "/front-end/med-cabinet/static/js/main.365de319.chunk.js"
   },
   {
