@@ -51,26 +51,26 @@ const inputChange = e => {
 }
 
 //validating that the form has inputs and setting errors with yup
-// const validateChange = (e) => {
-//     yup
-//       .reach(dataSchema, e.target.name)
-//       .validate(e.target.name === ? e.target.checked : e.target.value) 
-//       .then((valid) => {
-//         setErrors({
-//           ...errors,
-//           [e.target.name]: ""
-//         });
-//       })
-//       .catch((err) => {
-//         console.log(err);
+ const validateChange = (e) => {
+     yup
+       .reach(dataSchema, e.target.name)
+       .validate(e.target.name == e.target.value) 
+       .then((valid) => {
+         setErrors({
+           ...errors,
+          [e.target.name]: ""
+        });
+      })
+      .catch((err) => {
+        console.log(err);
 
-//         // set error in state
-//         setErrors({
-//           ...errors,
-//           [e.target.name]: err.errors[0]
-//         });
-//       });
-//   };
+        // set error in state
+        setErrors({
+          ...errors,
+          [e.target.name]: err.errors[0]
+        });
+      });
+  };
 //submit function to record the data in a json structure with an api HLKs5e3
 const formSubmit = e => {
     e.preventDefault();
@@ -79,7 +79,7 @@ const formSubmit = e => {
         .then(response => {
             console.log(response.data);
             setData(response.data);
-              
+              validateChange(e);
             setForm(blankValue);
         })
         .catch(err => {
@@ -119,6 +119,7 @@ return (
                     <option value = "Focused">Focused</option>
                 </select>
              </label>
+             <p>{errors.effect}</p>
              </Col>
              <Col>
              <label htmlFor = "flavor">
@@ -130,6 +131,7 @@ return (
                     <option value = "Blueberry">Blueberry</option>
                 </select>
              </label>
+             <p>{errors.flavor}</p>
              </Col>
              </Row>
              <button className = "Danger"  type = "submit">Submit</button>
